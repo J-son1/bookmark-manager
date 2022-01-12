@@ -1,6 +1,20 @@
 require 'bookmark'
 
 describe Bookmark do
+  let (:title) { 'title' }
+  let (:url) { 'url' }
+  subject (:bookmark) { described_class.new(title: title, url: url) }
+
+  describe '#initialize' do
+    it 'has a title' do
+      expect(bookmark.title).to eq title
+    end
+
+    it 'has a url' do
+      expect(bookmark.url).to eq url
+    end
+  end
+
   describe '#all' do 
     it 'returns all bookmarks' do 
       connection = PG.connect(dbname: 'bookmark_manager_test')
