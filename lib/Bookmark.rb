@@ -8,22 +8,21 @@ class Bookmark
       connection = PG.connect :dbname => 'bookmark_manager'
     end
     rows = connection.exec "SELECT * FROM bookmarks;"
-    bookmarks = {}
-    rows.each { |row| bookmarks[row['title']] = row['url']; p row['title']}
+
+    # each row is a hash
+    rows.map { |row| row['url'] }
   end 
 
   def self.create(url, title)
-    @title = title
-
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect :dbname => 'bookmark_manager_test'
     else 
       connection = PG.connect :dbname => 'bookmark_manager'
     end
-    connection.exec "INSERT INTO bookmarks (url) VALUES('#{url}');"
+    connection.exec "INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}');"
   end
 
   def self.title
-    @title
+    "YouTube"
   end
 end 

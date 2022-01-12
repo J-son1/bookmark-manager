@@ -9,15 +9,17 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks' do
     @bookmarks = Bookmark.all
+    p @bookmarks
     erb(:index)
   end 
 
   post '/add' do
-    # getting params from form
-    bookmark = params[:bookmark]
+    # get url and title from form
+    url = params[:url]
     title = params[:title]
     
-    Bookmark.create(bookmark, title)
+    # send bookmark to database
+    Bookmark.create(url, title)
 
     redirect('/bookmarks')
   end
