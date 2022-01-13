@@ -7,11 +7,17 @@ class BookmarkManager < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions, :method_override
+
   get '/' do
     @bookmarks = Bookmark.all
-
     erb(:index)
   end 
+
+  delete '/:id' do
+    Bookmark.delete(id: params[:id])
+    redirect('/')
+  end
 
   post '/add' do
     # send bookmark to database

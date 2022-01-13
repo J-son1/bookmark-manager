@@ -9,6 +9,11 @@ I can see the list of bookmarks
 As a user
 So that I can revisit website that I like
 I can add bookmarks to the list
+
+As a user
+So I can remove my bookmark from Bookmark Manager
+I want to delete a bookmark
+
 ```
  
 Domain Model 
