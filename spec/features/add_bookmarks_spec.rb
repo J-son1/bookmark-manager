@@ -1,9 +1,10 @@
 feature "Add bookmarks" do
-  scenario "add bookmarks to the bookmark list" do
-    visit('/bookmarks')
-    fill_in 'url', with: 'https://youtube.com'
+  xscenario "add bookmarks to the bookmark list" do
+    visit('/')
+    fill_in 'url', with: 'http://youtube.com'
     fill_in 'title', with: 'YouTube'
-    click_button 'Submit'   
-    expect(page).to have_content('YouTube')
+    click_button 'Submit'
+
+    expect(page).to have_link 'Youtube', href: 'http://www.youtube.com'
   end
 end

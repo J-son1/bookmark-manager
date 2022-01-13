@@ -7,6 +7,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_database'
+require 'database_helpers'
+
 
 Capybara.app = BookmarkManager
 

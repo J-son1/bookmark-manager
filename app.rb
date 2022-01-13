@@ -7,21 +7,17 @@ class BookmarkManager < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/bookmarks' do
+  get '/' do
     @bookmarks = Bookmark.all
-    
+
     erb(:index)
   end 
 
-  post '/add' do
-    # get url and title from form
-    url = params[:url]
-    title = params[:title]
-    
+  post '/bookmarks' do
     # send bookmark to database
-    Bookmark.create(url, title)
+    Bookmark.create(url: params[:url], title: params[:title])
 
-    redirect('/bookmarks')
+    redirect('/')
   end
 
   run! if app_file == $0

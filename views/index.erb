@@ -1,18 +1,22 @@
 <div>
-  <h2>Add a bookmark</h2>
-  <form action="/add" method="post">
-    <label for="url">Add a url</label>
-    <input type="text" name="url">
-    <label for="title">Add a title</label>
-    <input type="text" name="title">
+  <label for="add_bookmark"><h1>Add a bookmark</h1></label>
+  <form action="/add" method="post" name="add_bookmark">
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="url" placeholder="URL">
     <input type="submit" value="Submit">
   </form>
-</div>
+</div><br>
 
-<div> 
-  <% @bookmarks.each { |bookmark| %> 
-    <p><%= bookmark %></p>
-  <% } %> 
+<div>
+  <ul>
+    <% @bookmarks.each do |bookmark| %>
+      <li>
+        <a href="<%= bookmark.url %>">
+          <%= bookmark.title %>
+        </a>
+      </li>
+    <% end %>
+  </ul> 
 </div>
 
 YouTube
