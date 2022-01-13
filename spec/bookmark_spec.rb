@@ -42,4 +42,15 @@ describe Bookmark do
     end
   end  
 
+  describe '.update' do
+    it 'updates a bookmark from the database' do
+      bookmark_old = Bookmark.create(url: 'http://www.google.com', title: 'Google')
+      bookmark_new = Bookmark.update(id: bookmark_old.id, url: 'http://www.youtube.com', title: 'YouTube')
+      
+      expect(bookmark_new).to be_a Bookmark
+      expect(bookmark_new.id).to eq bookmark_old.id
+      expect(bookmark_new.title).to eq 'YouTube'
+      expect(bookmark_new.url).to eq 'http://www.youtube.com'
+    end
+  end
 end 
