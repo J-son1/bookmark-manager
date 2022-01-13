@@ -15,12 +15,8 @@ class Bookmark
     else 
       connection = PG.connect :dbname => 'bookmark_manager'
     end
-    
+
     rows = connection.exec "SELECT * FROM bookmarks;"
-    
-    # each row is a bookmark hash.
-    # returns an array of strings
-    # rows.map { |row| row['url'] }
 
     rows.map do |row|
       Bookmark.new(id: row['id'], url: row['url'], title: row['title'])

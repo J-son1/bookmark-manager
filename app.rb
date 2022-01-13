@@ -13,7 +13,7 @@ class BookmarkManager < Sinatra::Base
     erb(:index)
   end 
 
-  post '/bookmarks' do
+  post '/add' do
     # send bookmark to database
     Bookmark.create(url: params[:url], title: params[:title])
 
