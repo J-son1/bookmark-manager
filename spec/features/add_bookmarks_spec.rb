@@ -1,6 +1,7 @@
 feature "Add bookmarks" do
   scenario "add bookmarks to the bookmark list" do
-    visit('/')
+    visit '/bookmarks'
+    
     fill_in 'url', with: 'http://www.youtube.com'
     fill_in 'title', with: 'YouTube'
     click_button 'Submit'

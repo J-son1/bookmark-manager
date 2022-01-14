@@ -1,6 +1,18 @@
+<style>
+  .bm-title {
+    padding: 0 20 0 0;
+    display: inline;
+  }
+
+  .bm-button {
+    display: inline;
+  }
+</style>
+
+
 <div>
   <label for="add_bookmark"><h1>Add a bookmark</h1></label>
-  <form action="/add" method="post" name="add_bookmark">
+  <form action="/bookmarks/add" method="post" name="add_bookmark">
     <input type="text" name="title" placeholder="Title">
     <input type="text" name="url" placeholder="URL">
     <input type="submit" value="Submit">
@@ -10,17 +22,17 @@
 <div>
   <ul>
     <% @bookmarks.each do |bookmark| %>
-      <li class="bookmark" id="bookmark-<%=bookmark.id%>">
-        <a href="<%= bookmark.url %>">
+      <li class="bookmark" id="bookmark-<%= bookmark.id %>">
+        <a href="<%= bookmark.url %>" class="bm-title">
           <%= bookmark.title %>
         </a>
-        <form action='/<%=bookmark.id%>' method='post'> 
-          <input type='hidden' name='_method' value='DELETE' />
+        <form action="/bookmarks/<%= bookmark.id %>/edit" method="get" class="bm-button">
+          <input type="submit" value="Edit" />
+        </form>
+        <form action="/bookmarks/<%= bookmark.id %>" method="post" class="bm-button"> 
+          <input type="hidden" name="_method" value="DELETE" />
           <input type='submit' value='Delete' />
         </form>
-        <form action='/<%=bookmark.id%>/update' method='get'> 
-          <input type='submit' value='Update' />
-        </form
       </li>
     <% end %>
   </ul> 

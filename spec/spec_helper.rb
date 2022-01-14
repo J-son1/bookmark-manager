@@ -1,14 +1,13 @@
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
-require_relative '../app.rb'
+require_relative '../app'
 
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_database'
 require 'database_helpers'
-
 
 Capybara.app = BookmarkManager
 

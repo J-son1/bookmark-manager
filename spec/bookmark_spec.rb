@@ -5,7 +5,6 @@ describe Bookmark do
     it 'returns all bookmarks' do 
       connection = PG.connect(dbname: 'bookmark_manager_test')
 
-      # Add the test data
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
       Bookmark.create(url: "http://www.destroyallsoftware.com", title: "Destroy All Software")
       Bookmark.create(url: "http://www.google.com", title: "Google")
@@ -44,13 +43,25 @@ describe Bookmark do
 
   describe '.update' do
     it 'updates a bookmark from the database' do
-      bookmark_old = Bookmark.create(url: 'http://www.google.com', title: 'Google')
-      bookmark_new = Bookmark.update(id: bookmark_old.id, url: 'http://www.youtube.com', title: 'YouTube')
+      bookmark = Bookmark.create(url: 'http://www.google.com', title: 'Google')
+      updated_bookmark = Bookmark.update(id: bookmark.id, url: 'http://www.youtube.com', title: 'YouTube')
       
-      expect(bookmark_new).to be_a Bookmark
-      expect(bookmark_new.id).to eq bookmark_old.id
-      expect(bookmark_new.title).to eq 'YouTube'
-      expect(bookmark_new.url).to eq 'http://www.youtube.com'
+      expect(updated_bookmark).to be_a Bookmark
+      expect(updated_bookmark.id).to eq bookmark.id
+      expect(updated_bookmark.title).to eq 'YouTube'
+      expect(updated_bookmark.url).to eq 'http://www.youtube.com'
+    end
+  end
+
+  describe '.find' do
+    it 'returns a given bookmark from the database' do
+      bookmark = Bookmark.create(url: 'http://www.google.com', title: 'Google')
+      result = Bookmark.find(id: bookmark.id)
+
+      expect(result).to be_a Bookmark
+      expect(result.id).to eq bookmark.id
+      expect(result.title).to eq 'Google'
+      expect(result.url).to eq 'http://www.google.com'
     end
   end
 end 
