@@ -11,7 +11,7 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks' do
     @bookmarks = Bookmark.all
-    erb :index 
+    erb :'bookmarks/index'
   end 
 
   delete '/bookmarks/:id' do
