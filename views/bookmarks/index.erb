@@ -1,14 +1,4 @@
-<style>
-  .bm-title {
-    padding: 0 20 0 0;
-    display: inline;
-  }
-
-  .bm-button {
-    display: inline;
-  }
-</style>
-
+<link rel="stylesheet" href="/css/styles.css" type="text/css" />
 
 <div>
   <label for="add_bookmark"><h1>Add a bookmark</h1></label>
@@ -26,10 +16,10 @@
         <a href="<%= bookmark.url %>" class="bm-title">
           <%= bookmark.title %>
         </a>
-        <form action="/bookmarks/<%= bookmark.id %>/edit" method="get" class="bm-button">
+        <form action="/bookmarks/<%= bookmark.id %>/edit" method="get" class="bm-button-edit">
           <input type="submit" value="Edit" />
         </form>
-        <form action="/bookmarks/<%= bookmark.id %>" method="post" class="bm-button"> 
+        <form action="/bookmarks/<%= bookmark.id %>" method="post" class="bm-button-delete"> 
           <input type="hidden" name="_method" value="DELETE" />
           <input type='submit' value='Delete' />
         </form>
