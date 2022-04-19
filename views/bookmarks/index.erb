@@ -1,5 +1,12 @@
 <link rel="stylesheet" href="/css/styles.css" type="text/css" />
 
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
 <div>
   <label for="add_bookmark"><h1>Add a bookmark</h1></label>
   <form action="/bookmarks/add" method="post" name="add_bookmark">

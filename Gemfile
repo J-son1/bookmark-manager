@@ -11,3 +11,4 @@ gem 'capybara'
 gem 'rubocop'
 gem 'pg'
 gem 'webrick'
+gem "sinatra-flash", "~> 0.3.0"

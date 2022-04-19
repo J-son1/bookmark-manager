@@ -72,6 +72,8 @@ GEM
       rack-protection (= 2.1.0)
       sinatra (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     tilt (2.0.10)
     unicode-display_width (2.1.0)
     webrick (1.7.0)
@@ -88,7 +90,8 @@ DEPENDENCIES
   rubocop
   sinatra
   sinatra-contrib
+  sinatra-flash (~> 0.3.0)
   webrick
 
 BUNDLED WITH
-   2.3.1
+   2.3.7
