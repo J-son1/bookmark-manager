@@ -11,6 +11,16 @@ class Bookmark
     @url = url
   end
 
+  def comments
+    result = DatabaseConnection.query(
+      sql:
+        "SELECT * FROM comments "\
+        "WHERE bookmark_id = $1;",
+      params:
+        [id]
+    )
+  end
+
   def self.all
     result = DatabaseConnection.query sql: "SELECT * FROM bookmarks;"
 
