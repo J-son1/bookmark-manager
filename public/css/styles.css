@@ -1,7 +1,34 @@
 * {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #ccc;
 }
+
+div.flash.alert-box.radius {
+  text-align: center;
+  margin: 1em auto;
+  padding: 0.5em;
+  width: 60%;
+  border-radius: 1em;
+}
+
+a.close {
+  color: #444 !important;
+  float: right;
+  margin-left: 20px;
+  line-height: 18px;
+  font-size: 2em;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+a.close:hover {
+  text-decoration: none;
+}
+.notice {
+  border: 2px solid darksalmon;
+  background-color: rgba(233, 150, 122, 0.5);
+  color: #444;
+}
+
 .bookmark {
   padding: .4em 0;
 }
